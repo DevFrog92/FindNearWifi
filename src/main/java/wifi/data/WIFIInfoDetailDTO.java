@@ -1,6 +1,6 @@
-package api;
+package wifi.data;
 
-public class WIFIInfoDetail {
+public class WIFIInfoDetailDTO {
     private  String X_SWIFI_MGR_NO;
     private  String X_SWIFI_WRDOFC;
     private  String X_SWIFI_MAIN_NM;
@@ -17,8 +17,9 @@ public class WIFIInfoDetail {
     private  String LAT;
     private  String LNT;
     private  String WORK_DTTM;
+    private  String DIST;
 
-    public WIFIInfoDetail() {}
+    public WIFIInfoDetailDTO() {}
 
     public String getX_SWIFI_MGR_NO() {
         return X_SWIFI_MGR_NO;
@@ -82,5 +83,13 @@ public class WIFIInfoDetail {
 
     public String getWORK_DTTM() {
         return WORK_DTTM;
+    }
+
+    public String getDIST() {
+        return DIST;
+    }
+
+    public void setDIST(String DIST) {
+        this.DIST = DIST;
     }
 }
