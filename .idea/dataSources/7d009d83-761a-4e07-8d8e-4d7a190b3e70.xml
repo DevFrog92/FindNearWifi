@@ -1423,62 +1423,94 @@
     <argument id="503" parent="172">
       <Position>1</Position>
     </argument>
-    <table id="504" parent="173" name="history"/>
-    <table id="505" parent="173" name="sqlite_master">
+    <table id="504" parent="173" name="bookmarkGroup"/>
+    <table id="505" parent="173" name="history"/>
+    <table id="506" parent="173" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="506" parent="173" name="sqlite_sequence">
+    <table id="507" parent="173" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <column id="507" parent="504" name="id">
+    <column id="508" parent="504" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="508" parent="504" name="lat">
-      <DasType>varchar(20)|0s</DasType>
+    <column id="509" parent="504" name="name">
+      <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="509" parent="504" name="lnt">
-      <DasType>varchar(20)|0s</DasType>
+    <column id="510" parent="504" name="level">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="510" parent="504" name="searchAt">
+    <column id="511" parent="504" name="createAt">
       <DasType>date|0s</DasType>
       <DefaultExpression>(datetime(&apos;now&apos;, &apos;localtime&apos;))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <key id="511" parent="504">
+    <column id="512" parent="504" name="editAt">
+      <DasType>date|0s</DasType>
+      <DefaultExpression>(datetime(&apos;now&apos;, &apos;localtime&apos;))</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <key id="513" parent="504">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="512" parent="505" name="type">
+    <column id="514" parent="505" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>integer|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="515" parent="505" name="lat">
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="516" parent="505" name="lnt">
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="517" parent="505" name="searchAt">
+      <DasType>date|0s</DasType>
+      <DefaultExpression>(datetime(&apos;now&apos;, &apos;localtime&apos;))</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <key id="518" parent="505">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="519" parent="506" name="type">
       <DasType>TEXT|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="513" parent="505" name="name">
+    <column id="520" parent="506" name="name">
       <DasType>TEXT|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="514" parent="505" name="tbl_name">
+    <column id="521" parent="506" name="tbl_name">
       <DasType>TEXT|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="515" parent="505" name="rootpage">
+    <column id="522" parent="506" name="rootpage">
       <DasType>INT|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="516" parent="505" name="sql">
+    <column id="523" parent="506" name="sql">
       <DasType>TEXT|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="517" parent="506" name="name">
+    <column id="524" parent="507" name="name">
       <Position>1</Position>
     </column>
-    <column id="518" parent="506" name="seq">
+    <column id="525" parent="507" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
