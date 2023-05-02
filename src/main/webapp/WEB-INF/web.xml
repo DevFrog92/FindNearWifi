@@ -4,4 +4,33 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <context-param>
+    <param-name>WIFIRequestURL</param-name>
+    <param-value>http://openapi.seoul.go.kr:8088/</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>SqliteDriver</param-name>
+    <param-value>org.sqlite.JDBC</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>SqliteURL</param-name>
+    <param-value>jdbc:sqlite:/Users/devfrog/Documents/Github/Mission01/FindWifi/wifiInfo.db</param-value>
+  </context-param>
+
+  <filter>
+    <filter-name>SetCharEncoding</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>SetCharEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

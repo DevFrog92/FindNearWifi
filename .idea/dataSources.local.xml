@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-231.8109.175">
-    <data-source name="test.db" uuid="e046997f-4b47-4cf4-8bf9-9269ce60dea5">
+    <data-source name="WifiInfo.db" uuid="7d009d83-761a-4e07-8d8e-4d7a190b3e70">
       <database-info product="SQLite" version="3.40.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.40.1.0" dbms="SQLITE" exact-version="3.40.1" exact-driver-version="3.40">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
