@@ -1,24 +1,14 @@
-<%@ page import="http.HttpRequest" %>
-<%@ page import="wifi.data.WIFIInfoDetailDTO" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<%!
-    public void alt() {
-        System.out.println("hello");
-    }
-%>
 <%
     String lat = request.getParameter("lat");
     String lnt = request.getParameter("lnt");
-    HttpRequest httpRequest = new HttpRequest();
     List<HashMap<String, String>> rows = new ArrayList<>();
-    if(lat != null && lnt != null && !lat.equals("") && !lnt.equals("")) {
-        rows = httpRequest.getNeatWifiInfoList(application, "37.4629346", "126.8779394", httpRequest.getTotalWifiInfo(application));
-    }else {
-//        WIFIInfoDetailDTO[] rows = httpRequest.getWifiInfoList(application);
+    if(session.getAttribute("rows") != null) {
+        rows = (List<HashMap<String, String>>)session.getAttribute("rows");
     }
 %>
 <html>
@@ -38,11 +28,11 @@
     <h2 class="main-title">와이파이 정보 구하기</h2>
     <jsp:include page="/Common/Navigation.jsp" />
     <section class="control-container">
-        <form class="pos-list" method="get">
+        <form class="pos-list" method="get" action="ListProcess.jsp">
             <label class="pos-item">LAT: <input type="text" name="lat" class="pos-lat" value="<%=lat == null ? "" : lat%>"></label>
             <label class="pos-item">LNT: <input type="text" name="lnt" class="pos-lnt" value="<%=lnt == null ? "" : lnt%>"></label>
             <button class="btn btn-get-pos" type="button" onclick="getPosBtnHandler()">내 위치 가져오기</button>
-            <button class="btn btn-wifi-info" type="submit" onclick="">근처 WIFI 정보 보기</button>
+            <button class="btn btn-wifi-info" type="submit">근처 WIFI 정보 보기</button>
         </form>
     </section>
     <table>
@@ -65,7 +55,8 @@
             <th class="cell-size-md">작업일자</th>
         </tr>
 <%
-    for(HashMap<String, String> info: rows) {
+    if(rows.size() != 0){
+        for(HashMap<String, String> info: rows) {
 %>
     <tr>
         <td><%= info.get("DIST")%></td>
@@ -86,7 +77,9 @@
        <td><%= info.get("WORK_DTTM")%></td>
     </tr>
 <%
+        }
     }
+
 %>
     </table>
 </div>
@@ -104,9 +97,6 @@
                     inputLat.value = position.coords.latitude.toFixed(7);
                     inputLnt.value = position.coords.longitude.toFixed(7);
                     toggleMessage(false);
-                    <%
-                        alt();
-                    %>
                 },
                 (error) => {
                     throw new Error(error);
@@ -117,7 +107,7 @@
         }
     };
 
-    const toggleMessage =(flag, message = "") => {
+    const toggleMessage = (flag, message = "") => {
         const messageElem = document.querySelector(".message");
         const messageContentElem = document.querySelector(".message-content");
 
