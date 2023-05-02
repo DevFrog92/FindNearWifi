@@ -67,7 +67,7 @@ public class HttpRequest {
         long start = 0;
         long end = 999;
         long offset = 1000;
-        long cnt = (long)Math.ceil(totalAmount / offset);
+        long cnt = (long)Math.ceil((double) totalAmount / offset);
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         WIFIInfoDetailDTO[] wifiInfoDetailList = new WIFIInfoDetailDTO[0];
 
@@ -93,10 +93,10 @@ public class HttpRequest {
                     hm.put("X_SWIFI_CNSTC_YEAR", dto.getX_SWIFI_CNSTC_YEAR());
                     hm.put("X_SWIFI_INOUT_DOOR", dto.getX_SWIFI_INOUT_DOOR());
                     hm.put("X_SWIFI_REMARS3", dto.getX_SWIFI_REMARS3());
-                    hm.put("LAT", dto.getLAT());
-                    hm.put("LNT", dto.getLNT());
+                    hm.put("LNT", String.valueOf(Math.max(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT()))));
+                    hm.put("LAT", String.valueOf(Math.min(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT()))));
                     hm.put("WORK_DTTM", dto.getWORK_DTTM());
-                    hm.put("DIST",distance(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT()), Double.parseDouble(lat), Double.parseDouble(lnt), "kilometer"));
+                    hm.put("DIST",distance(Double.parseDouble(hm.get("LAT")), Double.parseDouble(hm.get("LNT")), Double.parseDouble(lat), Double.parseDouble(lnt)));
 
                     list.add(hm);
                 }
@@ -118,30 +118,21 @@ public class HttpRequest {
         return list.subList(0, 20);
     }
 
-    private String distance(double lat1, double lon1, double lat2, double lon2, String unit) {
-        double theta = lon1 - lon2;
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-
-        dist = Math.acos(dist);
-        dist = rad2deg(dist);
-        dist = dist * 60 * 1.1515;
-
-        if (unit == "kilometer") {
-            dist = dist * 1.609344;
-        } else if(unit == "meter"){
-            dist = dist * 1609.344;
+    // referenced https://www.geodatasource.com/developers/java
+    private String distance(double lat1, double lon1, double lat2, double lon2) {
+        if ((lat1 == lat2) && (lon1 == lon2)) {
+            return "0";
         }
 
-        return String.valueOf(dist).substring(0, 5);
-    }
+        else {
+            double theta = lon1 - lon2;
+            double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(theta));
+            dist = Math.acos(dist);
+            dist = Math.toDegrees(dist);
+            dist = dist * 60 * 1.1515;
+            dist = dist * 1.609344;
 
-    // This function converts decimal degrees to radians
-    private double deg2rad(double deg) {
-        return (deg * Math.PI / 180.0);
-    }
-
-    // This function converts radians to decimal degrees
-    private double rad2deg(double rad) {
-        return (rad * 180 / Math.PI);
+            return String.valueOf(dist).substring(0, 7);
+        }
     }
 }
