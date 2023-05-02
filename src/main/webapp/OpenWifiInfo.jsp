@@ -1,10 +1,4 @@
-<%@ page import="http.HttpRequest" %><%--
-  Created by IntelliJ IDEA.
-  User: devfrog
-  Date: 2023/05/01
-  Time: 8:37 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="http.HttpRequest" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpRequest httpRequest = new HttpRequest();
