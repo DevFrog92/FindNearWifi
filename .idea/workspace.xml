@@ -10,18 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d46465-02b4-4bde-bed7-f0f4059d0f18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/JDBConnect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wifi/data/HistoryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wifi/data/HistoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/HistoryDeleteProcess.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/HistoryProcess.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ListProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e046997f-4b47-4cf4-8bf9-9269ce60dea5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e48cf509-9254-49f8-a68b-5dd7c4332498.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/InfoDetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wifi/data/WifiInfoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wifi/data/WifiInfoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HistoryList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/HistoryList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/history",
+    "git-widget-placeholder": "feature/info/detail",
     "last_opened_file_path": "/Users/devfrog/Documents/Github/Mission01/FindWifi/src/main/java/http",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -198,7 +190,7 @@
       <updated>1682597360008</updated>
       <workItem from="1682688572813" duration="3241000" />
       <workItem from="1682693561373" duration="697000" />
-      <workItem from="1682939580617" duration="27831000" />
+      <workItem from="1682939580617" duration="30918000" />
     </task>
     <servers />
   </component>

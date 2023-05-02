@@ -62,7 +62,7 @@
         <td><%= info.get("DIST")%></td>
        <td><%= info.get("X_SWIFI_MGR_NO")%></td>
        <td><%= info.get("X_SWIFI_WRDOFC")%></td>
-       <td><%= info.get("X_SWIFI_MAIN_NM")%></td>
+        <td><a href="InfoDetail.jsp?mgrNo=<%=info.get("X_SWIFI_MGR_NO")%>"><%= info.get("X_SWIFI_MAIN_NM")%></a></td>
        <td><%= info.get("X_SWIFI_ADRES1")%></td>
        <td><%= info.get("X_SWIFI_ADRES2")%></td>
        <td><%= info.get("X_SWIFI_INSTL_FLOOR")%></td>
