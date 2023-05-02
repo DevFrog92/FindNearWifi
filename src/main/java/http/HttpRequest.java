@@ -68,6 +68,7 @@ public class HttpRequest {
         long end = 999;
         long offset = 1000;
         long cnt = (long)Math.ceil((double) totalAmount / offset);
+        double maxDist = 0;
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         WIFIInfoDetailDTO[] wifiInfoDetailList = new WIFIInfoDetailDTO[0];
 
@@ -79,6 +80,14 @@ public class HttpRequest {
 
                 for(WIFIInfoDetailDTO dto: wifiInfoDetailList ) {
                     HashMap<String, String> hm = new HashMap<String, String>();
+                    String LAT = String.valueOf(Math.min(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
+                    String LNT = String.valueOf(Math.max(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
+                    double dist = Double.parseDouble(distance(Double.parseDouble(LAT), Double.parseDouble(LNT), Double.parseDouble(lat), Double.parseDouble(lnt)));
+                    maxDist = Math.max(maxDist, dist);
+
+                    if(list.size() > 20 && dist > maxDist) {
+                        continue;
+                    }
 
                     hm.put("X_SWIFI_MGR_NO", dto.getX_SWIFI_MGR_NO());
                     hm.put("X_SWIFI_WRDOFC", dto.getX_SWIFI_WRDOFC());
@@ -93,11 +102,10 @@ public class HttpRequest {
                     hm.put("X_SWIFI_CNSTC_YEAR", dto.getX_SWIFI_CNSTC_YEAR());
                     hm.put("X_SWIFI_INOUT_DOOR", dto.getX_SWIFI_INOUT_DOOR());
                     hm.put("X_SWIFI_REMARS3", dto.getX_SWIFI_REMARS3());
-                    hm.put("LNT", String.valueOf(Math.max(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT()))));
-                    hm.put("LAT", String.valueOf(Math.min(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT()))));
+                    hm.put("LNT", LNT);
+                    hm.put("LAT", LAT);
                     hm.put("WORK_DTTM", dto.getWORK_DTTM());
-                    hm.put("DIST",distance(Double.parseDouble(hm.get("LAT")), Double.parseDouble(hm.get("LNT")), Double.parseDouble(lat), Double.parseDouble(lnt)));
-
+                    hm.put("DIST", String.valueOf(dist));
                     list.add(hm);
                 }
             } catch(Exception e) {
@@ -113,7 +121,6 @@ public class HttpRequest {
                     return dist1.compareTo(dist2);
                 }
             });
-
         }
         return list.subList(0, 20);
     }
