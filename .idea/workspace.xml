@@ -10,11 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d46465-02b4-4bde-bed7-f0f4059d0f18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/InfoDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkGroupDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkGroupDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkAdd.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkDeleteProcess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkGroup.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupDeleteProcess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupEditProcess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupProcess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkInsertProcess.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/BookmarkUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7d009d83-761a-4e07-8d8e-4d7a190b3e70.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7d009d83-761a-4e07-8d8e-4d7a190b3e70.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Common/Navigation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Common/Navigation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/InfoDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/InfoDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/OpenWifiInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/OpenWifiInfo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/info/detail",
+    "git-widget-placeholder": "feature/bookmark",
     "last_opened_file_path": "/Users/devfrog/Documents/Github/Mission01/FindWifi/src/main/java/http",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -82,6 +98,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/http" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/Resources/css" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -190,7 +207,7 @@
       <updated>1682597360008</updated>
       <workItem from="1682688572813" duration="3241000" />
       <workItem from="1682693561373" duration="697000" />
-      <workItem from="1682939580617" duration="30918000" />
+      <workItem from="1682939580617" duration="43713000" />
     </task>
     <servers />
   </component>
