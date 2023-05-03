@@ -9,10 +9,7 @@
   dao.close();
 %>
 <html>
-<head>
-    <title>Search wifi</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
   <div id="app">
     <h2 class="main-title">북마크 그룹 추가</h2>

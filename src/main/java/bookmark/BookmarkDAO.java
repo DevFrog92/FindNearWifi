@@ -1,7 +1,6 @@
 package bookmark;
 
 import common.JDBConnect;
-
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.List;

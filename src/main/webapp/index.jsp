@@ -1,38 +1,40 @@
-<%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="wifi.data.WIFIInfoDetailDTO" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%
     String lat = request.getParameter("lat");
     String lnt = request.getParameter("lnt");
-    List<HashMap<String, String>> rows = new ArrayList<>();
+    List<WIFIInfoDetailDTO> rows = new ArrayList<>();
+
+    if(session.getAttribute("lat") != null && session.getAttribute("lnt") != null) {
+        lat = session.getAttribute("lat").toString();
+        lnt = session.getAttribute("lnt").toString();
+    }
+
     if(session.getAttribute("rows") != null) {
-        rows = (List<HashMap<String, String>>)session.getAttribute("rows");
+        rows = (List<WIFIInfoDetailDTO>)session.getAttribute("rows");
     }
 %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search WIFI</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="Common/HeadTag.jsp"/>
 <body>
 <div id="app">
-    <div class="message">
-        <p class="message-content"></p>
-        <p>잠시만 기다려주세요.</p>
+    <div class="wait-message">
+        <div class="wait-message-inner-wrapper">
+            <p class="wait-message-content"></p>
+            <p>잠시만 기다려주세요.</p>
+        </div>
     </div>
     <h2 class="main-title">와이파이 정보 구하기</h2>
     <jsp:include page="/Common/Navigation.jsp" />
     <section class="control-container">
-        <form class="pos-list" method="get" action="ListProcess.jsp">
+        <form class="pos-list" method="get" action="WifiInfo/GetWifiListProcess.jsp">
             <label class="pos-item">LAT: <input type="text" name="lat" class="pos-lat" value="<%=lat == null ? "" : lat%>"></label>
             <label class="pos-item">LNT: <input type="text" name="lnt" class="pos-lnt" value="<%=lnt == null ? "" : lnt%>"></label>
             <button class="btn btn-get-pos" type="button" onclick="getPosBtnHandler()">내 위치 가져오기</button>
-            <button class="btn btn-wifi-info" type="submit">근처 WIFI 정보 보기</button>
+            <button class="btn btn-wifi-info" type="submit" onclick="toggleMessage(true, '근처 와이파이 정보를 수집하고 있습니다. \n 다소 시간이 소요될 수 있습니다.')">근처 WIFI 정보 보기</button>
         </form>
     </section>
     <table>
@@ -56,30 +58,29 @@
         </tr>
 <%
     if(rows.size() != 0){
-        for(HashMap<String, String> info: rows) {
+        for(WIFIInfoDetailDTO info: rows) {
 %>
     <tr>
-        <td><%= info.get("DIST")%></td>
-       <td><%= info.get("X_SWIFI_MGR_NO")%></td>
-       <td><%= info.get("X_SWIFI_WRDOFC")%></td>
-        <td><a href="InfoDetail.jsp?mgrNo=<%=info.get("X_SWIFI_MGR_NO")%>"><%= info.get("X_SWIFI_MAIN_NM")%></a></td>
-       <td><%= info.get("X_SWIFI_ADRES1")%></td>
-       <td><%= info.get("X_SWIFI_ADRES2")%></td>
-       <td><%= info.get("X_SWIFI_INSTL_FLOOR")%></td>
-       <td><%= info.get("X_SWIFI_INSTL_MBY")%></td>
-       <td><%= info.get("X_SWIFI_SVC_SE")%> </td>
-       <td><%= info.get("X_SWIFI_CMCWR")%> </td>
-       <td><%=info.get("X_SWIFI_CNSTC_YEAR")%></td>
-       <td><%=info.get("X_SWIFI_INOUT_DOOR")%></td>
-       <td><%=info.get("X_SWIFI_REMARS3")%></td>
-       <td><%= info.get("LAT")%></td>
-       <td><%= info.get("LNT")%></td>
-       <td><%= info.get("WORK_DTTM")%></td>
+        <td><%= info.getDist()%></td>
+       <td><%= info.getX_SWIFI_MGR_NO()%></td>
+       <td><%= info.getX_SWIFI_WRDOFC()%></td>
+        <td><a href="WifiInfo/InfoDetail.jsp?mgrNo=<%=info.getX_SWIFI_MGR_NO()%>"><%= info.getX_SWIFI_MAIN_NM()%></a></td>
+       <td><%= info.getX_SWIFI_ADRES1()%></td>
+       <td><%= info.getX_SWIFI_ADRES2()%></td>
+       <td><%= info.getX_SWIFI_INSTL_FLOOR()%></td>
+       <td><%= info.getX_SWIFI_INSTL_MBY()%></td>
+       <td><%= info.getX_SWIFI_SVC_SE()%> </td>
+       <td><%= info.getX_SWIFI_CMCWR()%> </td>
+       <td><%=info.getX_SWIFI_CNSTC_YEAR()%></td>
+       <td><%=info.getX_SWIFI_INOUT_DOOR()%></td>
+       <td><%=info.getX_SWIFI_REMARS3()%></td>
+       <td><%= info.getLAT()%></td>
+       <td><%= info.getLNT()%></td>
+       <td><%= info.getWORK_DTTM()%></td>
     </tr>
 <%
         }
     }
-
 %>
     </table>
 </div>
@@ -103,13 +104,13 @@
                 }
             )
         }else {
-            alert("현재 GPS를 지원하지 않습니다.")
+            alert("현재 장치는 GPS를 지원하지 않습니다.")
         }
     };
 
     const toggleMessage = (flag, message = "") => {
-        const messageElem = document.querySelector(".message");
-        const messageContentElem = document.querySelector(".message-content");
+        const messageElem = document.querySelector(".wait-message");
+        const messageContentElem = document.querySelector(".wait-message-content");
 
         messageContentElem.innerText = message;
         if(flag) {
@@ -119,6 +120,5 @@
         }
     }
 </script>
-
 </body>
 </html>

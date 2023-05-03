@@ -1,10 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
-<head>
-    <title>와이파이 정보 얻기</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
   <div id="app">
     <h2 class="main-title">북마크 그룹 추가</h2>

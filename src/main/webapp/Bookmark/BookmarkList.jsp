@@ -1,12 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="bookmark.BookmarkDTO" %>
-<%@ page import="bookmark.BookmarkDAO" %><%--
-  Created by IntelliJ IDEA.
-  User: devfrog
-  Date: 2023/05/02
-  Time: 8:13 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="bookmark.BookmarkDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   BookmarkDAO dao = new BookmarkDAO(application);
@@ -14,10 +8,7 @@
   dao.close();
 %>
 <html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
 <div id="app">
   <h2 class="main-title">북마크 목록</h2>

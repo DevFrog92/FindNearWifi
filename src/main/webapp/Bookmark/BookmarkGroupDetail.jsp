@@ -1,11 +1,5 @@
 <%@ page import="bookmark.BookmarkGroupDAO" %>
-<%@ page import="bookmark.BookmarkGroupDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: devfrog
-  Date: 2023/05/02
-  Time: 8:57 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="bookmark.BookmarkGroupDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String id = request.getParameter("id");
@@ -14,10 +8,7 @@
   dao.close();
 %>
 <html>
-<head>
-    <title>Title</title>
-  <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
   <div id="app">
     <h2 class="main-title">북마크 삭제</h2>
@@ -29,7 +20,7 @@
     </ul>
     <div>
       <a href="BookmarkGroup.jsp">돌아가기</a> |
-      <button type="button" onclick="location.href='./BookmarkGroupDeleteProcess.jsp?id=<%=dto.getId()%>'">삭제</button>
+      <button type="button" onclick="location.href='BookmarkGroupDeleteProcess.jsp'">삭제</button>
     </div>
   </div>
 </body>

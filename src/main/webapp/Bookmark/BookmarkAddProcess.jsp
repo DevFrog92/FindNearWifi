@@ -1,11 +1,6 @@
 <%@ page import="bookmark.BookmarkDTO" %>
-<%@ page import="bookmark.BookmarkDAO" %><%--
-  Created by IntelliJ IDEA.
-  User: devfrog
-  Date: 2023/05/02
-  Time: 8:30 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="bookmark.BookmarkDAO" %>
+<%@ page import="utils.JSFunction" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String bookmarkGroupName = request.getParameter("groupName");
@@ -21,8 +16,8 @@
   dao.close();
 
   if(iResult == 1) {
-    response.sendRedirect("BookmarkList.jsp");
+    JSFunction.alertLocation("북마크를 생성했습니다.", "BookmarkList.jsp", out);
   }else {
-    // TODO
+    JSFunction.alertBack("북마크 생성을 실패했습니다.", out);
   }
 %>

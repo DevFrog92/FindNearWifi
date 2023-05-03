@@ -5,14 +5,13 @@
     long totalAmount = httpRequest.getTotalWifiInfo(application);
 %>
 <html>
-<head>
-    <title>Open API Information</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
     <div id="app">
+        <div class="open-wifi-info-wrapper">
         <p><%=totalAmount%>개의 WIFI 정보를 정상적으로 저장하였습니다.</p>
-        <a href="index.jsp">홈 으로 가기</a>
+        <a href="../index.jsp">홈 으로 가기</a>
+        </div>
     </div>
 </body>
 </html>

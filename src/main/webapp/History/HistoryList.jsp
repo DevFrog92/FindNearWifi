@@ -8,14 +8,11 @@
     dao.close();
 %>
 <html>
-<head>
-    <title>위치 히스토리 목록</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
 <div id="app">
     <h2 class="main-title">위치 히스토리 목록</h2>
-    <jsp:include page="Common/Navigation.jsp" />
+    <jsp:include page="../Common/Navigation.jsp" />
     <table>
         <tr>
             <th>ID</th>
@@ -44,7 +41,6 @@
         <%
             }
         %>
-
 </div>
 </body>
 </html>
