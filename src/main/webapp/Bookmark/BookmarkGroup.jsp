@@ -12,7 +12,7 @@
 <jsp:include page="../Common/HeadTag.jsp"/>
 <body>
   <div id="app">
-    <h2 class="main-title">북마크 그룹 추가</h2>
+    <h2 class="main-title">북마크 그룹</h2>
     <jsp:include page="/Common/Navigation.jsp" />
     <div>
       <button type="button" onclick="location.href='BookmarkAdd.jsp'">북마크 그룹 이름 추가</button>

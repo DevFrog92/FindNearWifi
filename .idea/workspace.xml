@@ -10,38 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d46465-02b4-4bde-bed7-f0f4059d0f18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/JSFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Common/HeadTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7d009d83-761a-4e07-8d8e-4d7a190b3e70.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7d009d83-761a-4e07-8d8e-4d7a190b3e70.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookmark/BookmarkDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataScheme/UserTableScheme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/DbConnect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wifi/data/HistoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wifi/data/HistoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wifi/data/WIFIInfoDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wifi/data/WIFIInfoDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wifi/data/WifiInfoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-env.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkAdd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkDeleteProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkDeleteProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkGroup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupDeleteProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupDeleteProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupEditProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupEditProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkGroupProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkInsertProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkAddProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/BookmarkUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Common/Navigation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Common/Navigation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HistoryDeleteProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/History/HistoryDeleteProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HistoryList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/History/HistoryList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HistoryProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/History/HistoryAddProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/InfoDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WifiInfo/InfoDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ListProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WifiInfo/GetWifiListProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/OpenWifiInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WifiInfo/OpenWifiInfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Resources/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WifiInfo/GetWifiListProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WifiInfo/GetWifiListProcess.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,38 +41,41 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2P0cI3d2yOXMu7xAnSI4H2ktlRP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/errorHandling&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/devfrog/Documents/Github/Mission01/FindWifi/src/main/java/http&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5591532&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/devfrog/Documents/Github/Mission01/FindWifi/src/main/java/http",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5591532",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/http" />
@@ -221,7 +193,7 @@
       <workItem from="1682688572813" duration="3241000" />
       <workItem from="1682693561373" duration="697000" />
       <workItem from="1682939580617" duration="44446000" />
-      <workItem from="1683087256982" duration="7721000" />
+      <workItem from="1683087256982" duration="10033000" />
     </task>
     <servers />
   </component>

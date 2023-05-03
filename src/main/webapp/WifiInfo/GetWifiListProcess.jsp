@@ -31,7 +31,7 @@
     session.setAttribute("status", "finish");
 
     if(iResult == 1) {
-        JSFunction.alertLocation("근처 와이파치 정보를 성공적으로 수집했습니다.", "index.jsp?lat="+lat+"&lnt="+lnt, out);
+        JSFunction.alertLocation("근처 와이파치 정보를 성공적으로 수집했습니다.", "../index.jsp?lat="+lat+"&lnt="+lnt, out);
     }else {
         JSFunction.alertBack("근처 와이파이 정보 수집에 실패앴습니다.", out);
     }
