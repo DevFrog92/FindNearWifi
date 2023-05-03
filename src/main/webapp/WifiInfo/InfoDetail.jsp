@@ -18,7 +18,7 @@
             }
         }
     }else {
-        JSFunction.alertBack("와이파이의 상제 정보를 불러올 수 없습니다.", out);
+        JSFunction.alertLocation("와이파이의 상제 정보를 불러올 수 없습니다.", "../index.jsp",out);
     }
 
     BookmarkGroupDAO dao = new BookmarkGroupDAO(application);
@@ -31,7 +31,7 @@
 <div id="app">
   <h2 class="main-title">와이파이 정보 구하기</h2>
   <jsp:include page="/Common/Navigation.jsp" />
-    <form action="../Bookmark/BookmarkAddProcess.jsp" method="get" onsubmit="return validationForm(this)">
+    <form action="../Bookmark/BookmarkAddProcess.jsp" method="get" onsubmit="return validationForm(this, <%=list.size()%>)">
         <input type="hidden" name="mgrNo" value="<%=info.getX_SWIFI_MGR_NO()%>" />
         <input type="hidden" name="name" value="<%=info.getX_SWIFI_MAIN_NM()%>" />
         <select name="groupName">
@@ -65,11 +65,16 @@
         <li class="wifi-info-item"><span class="wifi-info-label">작업일자</span> <span><%=info.getWORK_DTTM()%></span></li>
     </ul>
     <script>
-        const validationForm = (form) =>{
+        const validationForm = (form, size) =>{
             if(form.groupName.value === ""){
-                alert("북마크 그룹을 먼저 생성해주세요.");
-                location.href = "../Bookmark/BookmarkGroup.jsp";
-                return false;
+                if(size !== 0) {
+                    alert("북마크 그룹을 선택해 주세요.");
+                    return false;
+                }else {
+                    alert("북마크 그룹을 먼저 생성해주세요.");
+                    location.href = "../Bookmark/BookmarkGroup.jsp";
+                    return false;
+                }
             }
         }
     </script>
