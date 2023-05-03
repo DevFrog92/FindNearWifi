@@ -1,7 +1,9 @@
 # 와이파이 정보 수집 서비스
 <br/>
 <div align="center">
-<img width="300" alt="Screenshot 2023-05-03 at 4 42 51 PM" src="https://user-images.githubusercontent.com/82052272/235857919-0fb0c0b5-62d9-4844-90f1-4b8314ebf510.png">
+
+![Screenshot 2023-05-03 at 6 19 35 PM](https://user-images.githubusercontent.com/82052272/235878225-9412525a-9ff2-43bb-9a3e-cf66d5bdddd1.png)
+
 </div>
 <br/>
 
