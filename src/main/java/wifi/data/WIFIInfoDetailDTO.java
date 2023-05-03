@@ -159,6 +159,8 @@ public class WIFIInfoDetailDTO {
         this.dist = dist;
     }
 
+
+    // overriding compare method for sort by distance
     public static Comparator<WIFIInfoDetailDTO> WIFIInfoDetailDTOComparator = new Comparator<WIFIInfoDetailDTO>() {
         public int compare(WIFIInfoDetailDTO o1, WIFIInfoDetailDTO o2) {
             double dist1 =  Double.parseDouble(o1.getDist());

@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d46465-02b4-4bde-bed7-f0f4059d0f18" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WifiInfo/GetWifiListProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WifiInfo/GetWifiListProcess.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/http/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wifi/data/WIFIInfoDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wifi/data/WIFIInfoDetailDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Bookmark/BookmarkGroupDetail.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +72,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.5591532",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -193,7 +198,7 @@
       <workItem from="1682688572813" duration="3241000" />
       <workItem from="1682693561373" duration="697000" />
       <workItem from="1682939580617" duration="44446000" />
-      <workItem from="1683087256982" duration="10033000" />
+      <workItem from="1683087256982" duration="14304000" />
     </task>
     <servers />
   </component>

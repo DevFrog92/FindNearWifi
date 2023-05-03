@@ -20,7 +20,7 @@
     </ul>
     <div>
       <a href="BookmarkGroup.jsp">돌아가기</a> |
-      <button type="button" onclick="location.href='BookmarkGroupDeleteProcess.jsp'">삭제</button>
+      <button type="button" onclick="location.href='BookmarkGroupDeleteProcess.jsp?id=<%=dto.getId()%>'">삭제</button>
     </div>
   </div>
 </body>
