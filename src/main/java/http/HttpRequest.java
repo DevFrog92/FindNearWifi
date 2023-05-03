@@ -19,6 +19,7 @@ public class HttpRequest {
         gson = new Gson();
 
        try {
+           // load api key from application-env.properties
            Properties properties = new Properties();
            InputStream inputStream = getClass().getResourceAsStream("/application-env.properties");
            properties.load(inputStream);
@@ -33,11 +34,14 @@ public class HttpRequest {
 
         return requestURL;
     }
-    private WifiApiJsonDTO requestAPI(String requestURL) {
+    private WifiApiJsonDTO requestWifiAPI(String requestURL) {
         WifiApiJsonDTO wifiApiJsonDTO = new WifiApiJsonDTO();
+
         try {
             Request request = new Request.Builder().url(requestURL).build();
             ResponseBody response = client.newCall(request).execute().body();
+
+            // convert response body to wifiAPIJsonDTO
             wifiApiJsonDTO = gson.fromJson(response.string(), WifiApiJsonDTO.class);
         } catch(Exception e) {
             e.printStackTrace();
@@ -47,30 +51,38 @@ public class HttpRequest {
     }
     public long getTotalWifiInfo(ServletContext application) {
         String requestURL = generateURL(application,1, 10);
-        WifiApiJsonDTO wifiApiJsonDTO = requestAPI(requestURL);
+        WifiApiJsonDTO wifiApiJsonDTO = requestWifiAPI(requestURL);
         return wifiApiJsonDTO.getTotalAmount();
     }
 
+    /*
+     * Constraint of Seoul public api for WIFI information
+     * maxSizeRequest: Maximum number of requested materials
+     * maxNumOfSheet: Maximum number of data sheet
+     */
     public List<WIFIInfoDetailDTO> getNearWifiInfoList(ServletContext application, String lat, String lnt, long totalAmount ) {
         long start = 0;
         long end = 999;
-        long offset = 1000;
-        long cnt = (long)Math.ceil((double) totalAmount / offset);
+        long maxSizeRequest = 1000;
+        long maxNumOfSheet = (long)Math.ceil((double) totalAmount / maxSizeRequest);
         double maxDist = 0;
         ArrayList<WIFIInfoDetailDTO> list = new ArrayList<WIFIInfoDetailDTO>();
 
-        while(cnt-- > 0) {
+        while(maxNumOfSheet-- > 0) {
             String requestURL = generateURL(application, start, end);
             try {
-                WifiApiJsonDTO wifiApiJsonDTO = requestAPI(requestURL);
+                WifiApiJsonDTO wifiApiJsonDTO = requestWifiAPI(requestURL);
                 WIFIInfoDetailDTO[] wifiInfoDetailList = wifiApiJsonDTO.getRow();
 
                 for(WIFIInfoDetailDTO dto: wifiInfoDetailList ) {
+                    // exception handling of api that comes from changing lat and Lnt
+                    // reference : seoul lat: 37.5666805, lnt: 126.9784147 (lat < lnt)
                     String LAT = String.valueOf(Math.min(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
                     String LNT = String.valueOf(Math.max(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
                     double dist = Double.parseDouble(distance(Double.parseDouble(LAT), Double.parseDouble(LNT), Double.parseDouble(lat), Double.parseDouble(lnt)));
                     maxDist = Math.max(maxDist, dist);
 
+                    // Store 20 nearest streets
                     if(list.size() > 20 && dist > maxDist) {
                         continue;
                     }
@@ -82,10 +94,12 @@ public class HttpRequest {
                 e.printStackTrace();
             }
 
-            start += offset;
-            end += offset;
-            Collections.sort(list, WIFIInfoDetailDTO.WIFIInfoDetailDTOComparator);
+            start += maxSizeRequest;
+            end += maxSizeRequest;
         }
+
+        // sorting wifi data by distance from user
+        Collections.sort(list, WIFIInfoDetailDTO.WIFIInfoDetailDTOComparator);
 
         return list.subList(0, 20);
     }
