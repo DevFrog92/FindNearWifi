@@ -20,7 +20,7 @@ public class HttpRequest {
 
        try {
            Properties properties = new Properties();
-           InputStream inputStream = getClass().getResourceAsStream("/application-dev.properties");
+           InputStream inputStream = getClass().getResourceAsStream("/application-env.properties");
            properties.load(inputStream);
            apikey = properties.getProperty("apiKey");
        }catch(IOException e) {
@@ -45,41 +45,27 @@ public class HttpRequest {
 
         return wifiApiJsonDTO;
     }
-    public WIFIInfoDetailDTO[] getWifiInfoList(ServletContext application) {
-        WIFIInfoDetailDTO[] wifiInfoDetailList = new WIFIInfoDetailDTO[0];
-        String requestURL = generateURL(application,1, 1000);
-        try {
-            WifiApiJsonDTO wifiApiJsonDTO = requestAPI(requestURL);
-            wifiInfoDetailList = wifiApiJsonDTO.getRow();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
-        return wifiInfoDetailList;
-    }
     public long getTotalWifiInfo(ServletContext application) {
-        String requestURL = generateURL(application,1, 1000);
+        String requestURL = generateURL(application,1, 10);
         WifiApiJsonDTO wifiApiJsonDTO = requestAPI(requestURL);
         return wifiApiJsonDTO.getTotalAmount();
     }
 
-    public List<HashMap<String, String>> getNeatWifiInfoList(ServletContext application, String lat, String lnt, long totalAmount ) {
+    public List<WIFIInfoDetailDTO> getNearWifiInfoList(ServletContext application, String lat, String lnt, long totalAmount ) {
         long start = 0;
         long end = 999;
         long offset = 1000;
         long cnt = (long)Math.ceil((double) totalAmount / offset);
         double maxDist = 0;
-        ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-        WIFIInfoDetailDTO[] wifiInfoDetailList = new WIFIInfoDetailDTO[0];
+        ArrayList<WIFIInfoDetailDTO> list = new ArrayList<WIFIInfoDetailDTO>();
 
         while(cnt-- > 0) {
             String requestURL = generateURL(application, start, end);
             try {
                 WifiApiJsonDTO wifiApiJsonDTO = requestAPI(requestURL);
-                wifiInfoDetailList = wifiApiJsonDTO.getRow();
+                WIFIInfoDetailDTO[] wifiInfoDetailList = wifiApiJsonDTO.getRow();
 
                 for(WIFIInfoDetailDTO dto: wifiInfoDetailList ) {
-                    HashMap<String, String> hm = new HashMap<String, String>();
                     String LAT = String.valueOf(Math.min(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
                     String LNT = String.valueOf(Math.max(Double.parseDouble(dto.getLAT()), Double.parseDouble(dto.getLNT())));
                     double dist = Double.parseDouble(distance(Double.parseDouble(LAT), Double.parseDouble(LNT), Double.parseDouble(lat), Double.parseDouble(lnt)));
@@ -89,24 +75,8 @@ public class HttpRequest {
                         continue;
                     }
 
-                    hm.put("X_SWIFI_MGR_NO", dto.getX_SWIFI_MGR_NO());
-                    hm.put("X_SWIFI_WRDOFC", dto.getX_SWIFI_WRDOFC());
-                    hm.put("X_SWIFI_MAIN_NM", dto.getX_SWIFI_MAIN_NM());
-                    hm.put("X_SWIFI_ADRES1", dto.getX_SWIFI_ADRES1());
-                    hm.put("X_SWIFI_ADRES2", dto.getX_SWIFI_ADRES2());
-                    hm.put("X_SWIFI_INSTL_FLOOR", dto.getX_SWIFI_INSTL_FLOOR());
-                    hm.put("X_SWIFI_INSTL_TY", dto.getX_SWIFI_INSTL_TY());
-                    hm.put("X_SWIFI_INSTL_MBY", dto.getX_SWIFI_INSTL_MBY());
-                    hm.put("X_SWIFI_SVC_SE", dto.getX_SWIFI_SVC_SE());
-                    hm.put("X_SWIFI_CMCWR", dto.getX_SWIFI_CMCWR());
-                    hm.put("X_SWIFI_CNSTC_YEAR", dto.getX_SWIFI_CNSTC_YEAR());
-                    hm.put("X_SWIFI_INOUT_DOOR", dto.getX_SWIFI_INOUT_DOOR());
-                    hm.put("X_SWIFI_REMARS3", dto.getX_SWIFI_REMARS3());
-                    hm.put("LNT", LNT);
-                    hm.put("LAT", LAT);
-                    hm.put("WORK_DTTM", dto.getWORK_DTTM());
-                    hm.put("DIST", String.valueOf(dist));
-                    list.add(hm);
+                    dto.setDist(String.valueOf(dist));
+                    list.add(dto);
                 }
             } catch(Exception e) {
                 e.printStackTrace();
@@ -114,14 +84,9 @@ public class HttpRequest {
 
             start += offset;
             end += offset;
-            Collections.sort(list, new Comparator<HashMap<String, String>>() {
-                public int compare(HashMap<String, String> o1, HashMap<String, String> o2) {
-                    Double dist1 =  Double.parseDouble(o1.get("DIST"));
-                    Double dist2 =  Double.parseDouble(o2.get("DIST"));
-                    return dist1.compareTo(dist2);
-                }
-            });
+            Collections.sort(list, WIFIInfoDetailDTO.WIFIInfoDetailDTOComparator);
         }
+
         return list.subList(0, 20);
     }
 

@@ -1,5 +1,7 @@
 package wifi.data;
 
+import java.util.Comparator;
+
 public class WIFIInfoDetailDTO {
     private  String X_SWIFI_MGR_NO;
     private  String X_SWIFI_WRDOFC;
@@ -17,7 +19,7 @@ public class WIFIInfoDetailDTO {
     private  String LAT;
     private  String LNT;
     private  String WORK_DTTM;
-    private  String DIST;
+    private  String dist;
 
     public WIFIInfoDetailDTO() {}
 
@@ -85,11 +87,84 @@ public class WIFIInfoDetailDTO {
         return WORK_DTTM;
     }
 
-    public String getDIST() {
-        return DIST;
+    public void setX_SWIFI_MGR_NO(String x_SWIFI_MGR_NO) {
+        X_SWIFI_MGR_NO = x_SWIFI_MGR_NO;
     }
 
-    public void setDIST(String DIST) {
-        this.DIST = DIST;
+    public void setX_SWIFI_WRDOFC(String x_SWIFI_WRDOFC) {
+        X_SWIFI_WRDOFC = x_SWIFI_WRDOFC;
     }
+
+    public void setX_SWIFI_MAIN_NM(String x_SWIFI_MAIN_NM) {
+        X_SWIFI_MAIN_NM = x_SWIFI_MAIN_NM;
+    }
+
+    public void setX_SWIFI_ADRES1(String x_SWIFI_ADRES1) {
+        X_SWIFI_ADRES1 = x_SWIFI_ADRES1;
+    }
+
+    public void setX_SWIFI_ADRES2(String x_SWIFI_ADRES2) {
+        X_SWIFI_ADRES2 = x_SWIFI_ADRES2;
+    }
+
+    public void setX_SWIFI_INSTL_FLOOR(String x_SWIFI_INSTL_FLOOR) {
+        X_SWIFI_INSTL_FLOOR = x_SWIFI_INSTL_FLOOR;
+    }
+
+    public void setX_SWIFI_INSTL_TY(String x_SWIFI_INSTL_TY) {
+        X_SWIFI_INSTL_TY = x_SWIFI_INSTL_TY;
+    }
+
+    public void setX_SWIFI_INSTL_MBY(String x_SWIFI_INSTL_MBY) {
+        X_SWIFI_INSTL_MBY = x_SWIFI_INSTL_MBY;
+    }
+
+    public void setX_SWIFI_SVC_SE(String x_SWIFI_SVC_SE) {
+        X_SWIFI_SVC_SE = x_SWIFI_SVC_SE;
+    }
+
+    public void setX_SWIFI_CMCWR(String x_SWIFI_CMCWR) {
+        X_SWIFI_CMCWR = x_SWIFI_CMCWR;
+    }
+
+    public void setX_SWIFI_CNSTC_YEAR(String x_SWIFI_CNSTC_YEAR) {
+        X_SWIFI_CNSTC_YEAR = x_SWIFI_CNSTC_YEAR;
+    }
+
+    public void setX_SWIFI_INOUT_DOOR(String x_SWIFI_INOUT_DOOR) {
+        X_SWIFI_INOUT_DOOR = x_SWIFI_INOUT_DOOR;
+    }
+
+    public void setX_SWIFI_REMARS3(String x_SWIFI_REMARS3) {
+        X_SWIFI_REMARS3 = x_SWIFI_REMARS3;
+    }
+
+    public void setLAT(String LAT) {
+        this.LAT = LAT;
+    }
+
+    public void setLNT(String LNT) {
+        this.LNT = LNT;
+    }
+
+    public void setWORK_DTTM(String WORK_DTTM) {
+        this.WORK_DTTM = WORK_DTTM;
+    }
+
+    public String getDist() {
+        return dist;
+    }
+
+    public void setDist(String dist) {
+        this.dist = dist;
+    }
+
+    public static Comparator<WIFIInfoDetailDTO> WIFIInfoDetailDTOComparator = new Comparator<WIFIInfoDetailDTO>() {
+        public int compare(WIFIInfoDetailDTO o1, WIFIInfoDetailDTO o2) {
+            double dist1 =  Double.parseDouble(o1.getDist());
+            double dist2 =  Double.parseDouble(o2.getDist());
+            if(dist1 == dist2) return 0;
+            return dist1 < dist2 ? -1: 1;
+        }
+    };
 }

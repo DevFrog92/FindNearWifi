@@ -8,10 +8,7 @@
     dao.close();
 %>
 <html>
-<head>
-    <title>북마크 삭제</title>
-    <link rel="stylesheet" href="Resources/css/main.css" type="text/css">
-</head>
+<jsp:include page="../Common/HeadTag.jsp"/>
 <body>
 <div id="app">
     <h2 class="main-title">북마크 삭제</h2>
@@ -24,7 +21,7 @@
     </ul>
     <div>
         <a href="BookmarkList.jsp">돌아가기</a> |
-        <button type="button" onclick="location.href='./BookmarkDeleteProcess.jsp?mgrNo=<%=dto.getMgrNo()%>'">삭제</button>
+        <button type="button" onclick="location.href='BookmarkDeleteProcess.jsp?mgrNo=<%=dto.getMgrNo()%>'">삭제</button>
     </div>
 </div>
 </body>
